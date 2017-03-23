@@ -1,0 +1,22 @@
+{
+  "name": "meanapp",
+  "version": "1.0.0",
+  "description": "this is for enhance nodejs terminology and advance nodejs things",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raviguru123/meanapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raviguru123/meanapp/issues"
+  },
+  "homepage": "https://github.com/raviguru123/meanapp#readme",
+  "dependencies": {
+    "http": "0.0.0"
+  }
+}
