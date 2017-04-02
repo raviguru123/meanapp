@@ -1,0 +1,18 @@
+{
+  "name": "meanapp",
+  "description": "this is for enhance nodejs terminology and advance nodejs things",
+  "main": "app.js",
+  "license": "ISC",
+  "homepage": "https://github.com/raviguru123/meanapp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-facebook": "^0.2.3",
+    "angular": "angularjs#^1.6.3"
+  }
+}
