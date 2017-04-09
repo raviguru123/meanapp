@@ -1,7 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
+
+
+	<title></ti
+
+		tle>
+		<script>
+		// var object1={first:"hello",second:"Ravi"};
+		// var object2={
+		// 	first:"hello",
+		// 	second:"Guru",
+		// 	execute:function(){
+		// 		console.log("wow i am executing");
+		// 	}
+		// };
+
+		// function say(greeting){
+		// 	console.log("THIS VALUE "+greeting+" "+this.first+" "+this.second);
+		// 	if(this.execute!=undefined){
+		// 		this.execute();
+		// 	}
+		// }
+
+		//say.call(object1,"MRS");
+		//say.apply(object2,["MR","SIR"]);
+		//var fn=say.bind(object2,"bind function");
+		//fn();
+
+		// function parent(param){
+		// 	console.log("parent function called with "+param+" parameter");
+		// 	this.baby="hello this is parent baby";
+		// 	this.parentchild=function(){
+		// 		console.log("ya babay",this.baby);
+
+		// 	}
+		// }
+
+
+		// function child(param){
+		// 	parent.call(this,param);
+		// 	this.baby="hello this is child value";
+		// 	this.parentchild();
+		// }
+
+		// var childobject=new child('hello');
+		// var parantobject=new parent();
+		// parantobject.parentchild();
+		//childobject.parentchild();
+
+		// function parent(){
+		// 	this.name="default name";
+		// 	this.direct=function(){
+		// 		console.log("this is parent direct method");
+		// 	}
+		// }
+
+		
+
+		// parent.prototype.getname=function(){
+		// 	return this.name;
+		// }
+
+		// parent.prototype.setname=function(name){
+		// 	this.name=name;
+		// }
+
+
+		// function child(name){
+		// 	parent.call(this);
+		// }
+
+		// child.prototype=Object.create(parent.prototype);
+		// var cildobj=new child();
+
+		// cildobj.setname("ravi");
+		// console.log("child.getname()",cildobj.getname());
+
+		// cildobj.setname("guru");
+		// cildobj.direct();
+
+
+		var parent=(function(){
+
+			var instance;
+			function singleton(){
+				if(instance)
+					return instance;
+				instance=this;
+			}
+
+			singleton.getInstance=function(){
+				return instance||new singleton();
+			}
+
+			return singleton;
+		}());
+
+
+		var a=new parent();
+		var b=new parent();
+		console.log("a==b",a==b);
+
+		var c=parent.getInstance();
+		var d=parent.getInstance();
+		console.log("c==d",c==a);		
+
+
+	</script>
 </head>
 <body>
 	<h1>Hello this is my first page</h1>

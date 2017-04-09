@@ -17,13 +17,16 @@
   },
   "homepage": "https://github.com/raviguru123/meanapp#readme",
   "dependencies": {
+    "assert": "^1.4.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
+    "file": "^0.2.2",
     "http": "0.0.0",
     "nodemon": "^1.11.0",
     "sendevent": "^1.0.4",
     "supervisor": "^0.12.0",
     "uglify-js": "^2.8.21",
+    "url": "^0.11.0",
     "watch": "^1.0.2"
   }
 }

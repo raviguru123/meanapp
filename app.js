@@ -1,17 +1,38 @@
-var http=require("http");
-const hostname='127.0.0.1';
-const port='3000';
+var fs=require("fs");
+var http=require("http"),
+url=require("url"),
 
-const server=http.createServer((req,res)=>{
-	res.statusCode=200;
-	res.setHeader('content-Type','text/plain');
-	//res.send("send message");
-	res.write("write message dhsjdhsjdsh");
-	res.end("hello this is first response");
+port=3000;
+
+let server=http.createServer(function(req,res){
+	if(req.headers.dnt==1){
+		console.log("do not track please");
+	}
+
+	var url_parsed=url.parse(req.url,true);
+	if(req.method=='GET'){
+
+	}
+	else if(['PUT','POST','DELETE'].indexOf(req.method)>-1){
+
+	}
+	else{
+		res.end("method not supported");
+	}
 });
 
 
-server.listen(port,hostname,()=>{
-	console.log("server listen to port",port,hostname);
-});
 
+
+
+
+
+
+
+
+server.listen(port,function(err,res){
+	if(err){
+		return console.log("error occured during listen server");
+	}
+	console.log("response and server listen",port);
+});
