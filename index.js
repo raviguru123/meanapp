@@ -1,21 +1,58 @@
 var http=require("http");
 const hostname='127.0.0.1';
-const port='3000';
+const port='3000',
+argv=process.argv.slice(2);
+
+let clientoption=
+{
+	host:'localhost',
+	method:'GET',
+	port:3000,
+	path:'/'
+}
+
+argv.forEach(function(method){
+	switch(method){
+		case 'GET':
+		clientoption.method=method;
+		break;
+		case 'SUBMIT':
+		case 'POST':
+		clientoption.method=method;
+		clientoption.path='/api';
+		break;
+		case 'UPDATE':
+		case 'PUT':
+		clientoption.method=method;
+		clientoption.path="/api";
+
+		default:
+		clientoption.method=method;
+		clientoption.path="/";
+	}
 
 
 
+	let clientreq=http.request(clientoption,function(res){
+		console.log("statusCode",res.statusCode);
+		switch(res.statusCode){
+			case 200:
+			res.setEncoding("utf8");
+			res.on("data",function(data){
+				console.log("data",data);
+			});
+			break;
+			case 400:
+			console.log("404 error");
+			break;
+		}
+	});
 
 
-const server=http.createServer((req,res)=>{
-	res.statusCode=200;
-	res.setHeader('content-Type','text/plain');
-	//res.send("send message");
-	res.write("write message dhsjdhsjdsh");
-	res.end("hello this is first response");
+	clientreq.on("error",function(err){
+		console.log("error occured")
+	});
+
+	clientreq.end();
+
 });
-
-
-server.listen(port,hostname,()=>{
-	console.log("server listen to port",port,hostname);
-});
-

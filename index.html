@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html ng-app="main.module">
+<head>
+	<title></title>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script>
+		var app=angular.module("main.module",[]);
+		app.controller("mainController",function($scope){
+			$scope.namevalue="parent Controller name";
+		});
+
+
+		app.directive('nestDir',function(){
+			return {
+				restrict:'EA',
+				$scope:false,
+				link: function($scope,element,iAttrs,controller) {
+					$scope.template="";
+					$scope.load=function(){
+						$scope.template="dir.html";
+
+					}
+				},
+				template:'<div ng-include="template"></div>'
+			};
+		});
+	</script>
+</head>
+<body  ng-controller="mainController">
+	<p ng-bind="namevalue"></p>
+	<input type="text" ng-model="textbox" name="">	
+	<label>{{textbox}}</label>
+	<input type="button" name="" ng-click="load()" value="Click me">
+	
+	<div style="width: 200px;height: 200px">
+		<nest-dir></nest-dir>
+	</div>
+
+</body>
+
+</html>
