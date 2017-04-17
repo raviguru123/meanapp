@@ -26,6 +26,7 @@
     "http": "0.0.0",
     "nodemon": "^1.11.0",
     "sendevent": "^1.0.4",
+    "socket.io": "^1.7.3",
     "supervisor": "^0.12.0",
     "uglify-js": "^2.8.21",
     "url": "^0.11.0",
