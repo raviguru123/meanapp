@@ -1,7 +1,10 @@
-<script src="views/view.js"></script>
-<div style="color:green;height: 100px;width: 100px">
-	<h1>Hello this is directive html</h1>
-	<h1>Hello this is directive html</h1>
-	<h1>Hello this is directive html</h1>
-	<h1>Hello this is directive html</h1>
+<div   oc-lazy-load="{ name: 'base', files: ['dir.js'] }"  style="color:green;height: 100px;width: 100px">
+	<div ng-controller="next">
+		<input  type="button" value="click me" ng-click="set()" name="">
+		<h1 ng-bind="firstvar"></h1>
+		<h1>Hello this is directive html</h1>
+		<h1>Hello this is directive html</h1>
+		<h1>Hello this is directive html</h1>
+	</div>
 </div>
+

@@ -3,14 +3,16 @@
 <head>
 	<title></title>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="ocLazyLoad.js"></script>
 	<script>
-		var app=angular.module("main.module",[]);
-		app.controller("mainController",function($scope){
+		
+		var app=angular.module('main.module', ['oc.lazyLoad'])
+		
+		app.controller('mainController', ['$scope', function($scope) {
 			$scope.namevalue="parent Controller name";
-		});
+		}]);
 
-
-		app.directive('nestDir',function(){
+		app.directive('nestDir',function($http){
 			return {
 				restrict:'EA',
 				$scope:false,
@@ -18,12 +20,12 @@
 					$scope.template="";
 					$scope.load=function(){
 						$scope.template="dir.html";
-
 					}
 				},
 				template:'<div ng-include="template"></div>'
 			};
 		});
+
 	</script>
 </head>
 <body  ng-controller="mainController">
@@ -31,7 +33,7 @@
 	<input type="text" ng-model="textbox" name="">	
 	<label>{{textbox}}</label>
 	<input type="button" name="" ng-click="load()" value="Click me">
-	
+
 	<div style="width: 200px;height: 200px">
 		<nest-dir></nest-dir>
 	</div>
